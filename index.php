@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>lifecity</title>
+    <title>livecity</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap Core CSS -->
@@ -22,7 +22,7 @@
     <link href="css/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,8 +64,9 @@ $pdo->query($sql);
 		<img src="titelweiss.png" height="200px">
 			
                 <!-- /.row -->
-			<form action="index.php" method="POST">
+			
                 <div class="row">
+				<form action="index.php" method="POST">
                     <div class="col-lg-4 col-md-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -78,6 +79,9 @@ $pdo->query($sql);
                                     </div>
                                 </div>
                             </div>
+							
+                   
+                            
                             <a href="javascript:toggle('stadt')">
                                 <div class="panel-footer">
                                     <span class="pull-left">Meine Stadt</span>
@@ -157,9 +161,12 @@ $pdo->query($sql);
 								
 								<div class="clearfix"></div>
                             </div>
+							             <div class="panel-footer">
+                                    <input type="submit" id="button" value="erledigt">
+                                </div>
                         </div>
                     </div>
-                    
+                    </form>
                     <div class="col-lg-4 col-md-6">
                         <div class="panel panel-yellow">
                             <div class="panel-heading">
@@ -195,7 +202,6 @@ $pdo->query($sql);
                             </div>
                             <a href="#">
                                 <div class="panel-footer">
-                                    <span class="pull-left"><div id="chartContainer" style="height: 100px; width: 300px;"></div>
 									<?php
 									
 									$pdo = new PDO('mysql:host=localhost;dbname=lifecity', 'root', '');
@@ -213,33 +219,12 @@ $pdo->query($sql);
 									
 									$tasks = $received->fetch(PDO::FETCH_ASSOC)['count(*)'];
 									
-									
-									$percent=($donetasks/$tasks)*100;
+									$percentanzeige=round(($donetasks/$tasks)*100,1);
+									$percent=(($donetasks/$tasks)-1)*350;
 									?>
-									<script type="text/javascript">
-									window.onload = function () {
-			var chart = new CanvasJS.Chart("chartContainer",
-			{
-				title:{
-					text: "Bearbeitungsstand"
-				},
-
-				data: [
-				{
-					type: "bar",
-
-					dataPoints: [
-					{ x: 10, y: <?php echo $percent;  ?>, label:"geschafft" },
-					]
-				}
-				]
-			});
-
-			chart.render();
-		}
-									
-									
-									</script></span>
+                                    <span class="pull-left"><div id="baum"><img id="baumbild" style="margin-top:<?php echo $percent;?>px;"src="baum.png"></div>
+									<?php echo $percentanzeige;?>%
+									</span>
                                     <div class="clearfix" ></div>
                                 </div>
                             </a>
@@ -247,7 +232,7 @@ $pdo->query($sql);
                     </div>
                 </div>
                 <!-- /.row -->
-				<input type="submit" id="button" value="erledigt"></form>
+				
 
 </div>
     <!-- jQuery -->

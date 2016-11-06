@@ -69,6 +69,7 @@
 }
 .pull-left {
   float: left;
+  overflow:hidden;
 }
 .fa.pull-left {
   margin-right: .3em;

@@ -20,6 +20,17 @@ body {
 #userbild{
 	width:150px;
 }
+#baum{
+ position: relative;
+ overflow:hidden;
+
+ min-height:200px;
+ 
+}
+#baumbild{
+width:300px;
+	
+}
 #button{
 border-radius:5px;
 background-color: #F43A14;

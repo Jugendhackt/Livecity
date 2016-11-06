@@ -46,7 +46,8 @@
 				<p>Passwort:</p>
 				<input name="pass" type="password" size="40" maxlength="250"><br><br>
 				<input type="submit" name="submit" value="Einloggen">
-
+				<input type="submit" name="submit" value="Passwort vergessen">
+				<input type="submit" name="submit" value="User erstellen">
 			</form> 
 				
 
